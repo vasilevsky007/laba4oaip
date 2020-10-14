@@ -9,7 +9,7 @@
 
 int main() {
 	setlocale(0, "Russian");
-	int n, m, pm;
+	int n, m, k;
 	int* a;
 	do {
 		fflush(stdin);
@@ -24,16 +24,25 @@ int main() {
 	for (int i = 0; i < n; i++) {
 		printf("a[%d]=%d  ", i,a[i]);
 	}
-	for (int j = 0; j < 5; j++) {
-		m = a[0]; pm = 0;
-		for (int i = 1; i < n; i++) {
-			if (a[i] < m) { m = a[i]; pm = i; }
-		}
-		for (int i = pm; i < n; i++) {
-			a[i] = a[i + 1];
-		}
-		n--;
-		a = (int*)realloc(a, sizeof(int) * n);
+	printf("\n сортирока 1)по убыванию 2)по возрастанию \n");
+	scanf_s("%d", &k);
+	switch (k) {
+			case 1: for (int i = 0; i < n; i++)
+			for (int j = 0; j < n; j++) {
+				if (a[j] > a[j + 1]) {
+					m = a[j];
+					a[j] = a[j + 1];
+					a[j + 1] = m;
+				}
+			}
+			case 2: for (int i = 0; i < n; i++)
+				for (int j = 0; j < n; j++) {
+					if (a[j] < a[j + 1]) {
+						m = a[j];
+						a[j] = a[j + 1];
+						a[j + 1] = m;
+					}
+				}
 	}
 	printf("\n");
 	for (int i = 0; i < n; i++) {
