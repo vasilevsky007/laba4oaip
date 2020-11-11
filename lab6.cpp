@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <locale.h>
-#include <math.h>
 
 int modul(int aa) {
 	if (aa >= 0) return aa;
