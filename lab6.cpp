@@ -4,7 +4,10 @@
 #include <locale.h>
 #include <math.h>
 
-
+int modul(int aa) {
+	if (aa >= 0) return aa;
+	else return -1 * aa;
+}
 int main() {
 	setlocale(0, "Russian");
 	int n,max,strmax,stmax,**mas;
@@ -20,11 +23,11 @@ int main() {
 			printf("mas[%d][%d]=", i, j);
 			scanf_s("%d", *(mas + i) + j);
 		}
-	max = abs(mas[0][0]); strmax = 0; stmax = 0;
+	max = modul(mas[0][0]); strmax = 0; stmax = 0;
 	for (int i = 0; i < n; i++)
 		for (int j = 0; j < n; j++) {
-			if (abs(mas[i][j]) > max) {
-				max = abs(mas[i][j]);
+			if (modul(mas[i][j]) > max) {
+				max = modul(mas[i][j]);
 				strmax = i;
 				stmax = j;
 			}
